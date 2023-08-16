@@ -1,36 +1,69 @@
 {
-  "name": "next-storybook",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "@types/node": "20.5.0",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.16",
-    "next": "13.4.16",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.1.6"
-  },
-  "devDependencies": {
-    "@storybook/addon-essentials": "^7.3.1",
-    "@storybook/addon-interactions": "^7.3.1",
-    "@storybook/addon-links": "^7.3.1",
-    "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "^7.3.1",
-    "@storybook/nextjs": "^7.3.1",
-    "@storybook/react": "^7.3.1",
-    "@storybook/testing-library": "^0.2.0",
-    "eslint-plugin-storybook": "^0.6.13",
-    "storybook": "^7.3.1"
-  }
+	"name": "asr-next-storybook-r",
+	"version": "0.1.0",
+	"private": false,
+	"typings": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"homepage": "https://github.com/asepulvedaSMU",
+	"repository": {
+		"url": "https://github.com/asepulvedaSMU/storybook-nextjs-ts",
+		"type": "git"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"typescript": ">=4.0.0"
+	},
+	"release": {
+		"branches": [
+			"main"
+		]
+	},
+	"files": [
+		"dist",
+		"stories"
+	],
+	"scripts": {
+		"dev": "next dev",
+		"build": "npm run clean && tsc && npm run copy-files",
+		"start": "next start",
+		"lint": "next lint",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build",
+		"clean": "rimraf dist/",
+		"copy-files": "copyfiles -u 1 src/**/*.css dist/"
+	},
+	"dependencies": {
+		"@types/node": "20.5.0",
+		"@types/react": "18.2.20",
+		"@types/react-dom": "18.2.7",
+		"eslint": "8.47.0",
+		"eslint-config-next": "13.4.16",
+		"next": "13.4.16",
+		"react": ">=16",
+		"react-dom": "18.2.0",
+		"typescript": ">=4.0.0"
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^7.3.1",
+		"@storybook/addon-interactions": "^7.3.1",
+		"@storybook/addon-links": "^7.3.1",
+		"@storybook/addon-onboarding": "^1.0.8",
+		"@storybook/blocks": "^7.3.1",
+		"@storybook/nextjs": "^7.3.1",
+		"@storybook/react": "^7.3.1",
+		"@storybook/testing-library": "^0.2.0",
+		"copyfiles": "^2.4.1",
+		"eslint-plugin-storybook": "^0.6.13",
+		"rimraf": "^5.0.1",
+		"semantic-release": "^21.0.7",
+		"storybook": "^7.3.1"
+	},
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		"@semantic-release/changelog",
+		"@semantic-release/github",
+		"@semantic-release/npm",
+		"@semantic-release/git"
+	]
 }
